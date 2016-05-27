@@ -57,6 +57,6 @@ add_action( 'admin_head', function() {
 }, 20 );
 
 /**
- * Bypass Image downsize hooks and use the {prefix}_photon_url directly.
+ * Bypass Image downsize hooks and use the {prefix}_photon_url function directly.
  */
 add_filter( 'photonfill_bypass_image_downsize', '__return_true' );
