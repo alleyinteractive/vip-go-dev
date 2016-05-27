@@ -55,3 +55,8 @@ add_action( 'admin_head', function() {
 		remove_action( 'admin_notices', [ VaultPress::init(), 'connect_notice' ] );
 	}
 }, 20 );
+
+/**
+ * Bypass Image downsize hooks and use the {prefix}_photon_url directly.
+ */
+add_filter( 'photonfill_bypass_image_downsize', '__return_true' );
