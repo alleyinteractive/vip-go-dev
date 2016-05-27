@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ruleset name="vip-go-dev">
+	<description>Sniffs for the coding standards of the VIP Go Developer plugin</description>
+
+	<rule ref="WordPress-VIP">
+	</rule>
+</ruleset>

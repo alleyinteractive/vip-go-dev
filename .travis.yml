@@ -1,0 +1,34 @@
+sudo: false
+
+language: php
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+branches:
+  only:
+    - master
+
+matrix:
+  include:
+    - php: 5.4
+    - php: 7.0
+    - php: 5.6
+      env: WP_TRAVISCI=phpcs
+  fast_finish: true
+
+before_script:
+  - |
+    if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
+      composer install
+      npm install
+    fi
+
+script:
+  - find . -path ./vendor -prune -o -type "f" -iname "*.php" | xargs -L "1" php -l
+  - |
+    if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
+      grunt phpcs
+    fi
